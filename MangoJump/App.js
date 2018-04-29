@@ -1,23 +1,47 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, View, Text, Alert } from 'react-native';
+import { StackNavigator } from 'react-navigation'; // Version can be specified in package.json
+import { GameScreen } from './Screens/GameScreen'
+import { LoginScreen } from './Screens/LoginScreen'
 
-export default class App extends React.Component {
+
+class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Facebook Login"
+          onPress={() => this.props.navigation.navigate('LoginScreen')}
+        />
+        <Button
+          title="Go to Game"
+          onPress={() => this.props.navigation.navigate('GameScreen')}
+        />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const RootStack = StackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+    LoginScreen: {
+      screen: LoginScreen,
+    },
+    GameScreen: {
+      screen: GameScreen,
+    }
   },
-});
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }
+}

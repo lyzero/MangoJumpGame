@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "react-native": "~0.55.2",
+    "react-native-facebook-login": "^1.6.1",
+    "react-navigation": "^1.5.11"
   }
 }
