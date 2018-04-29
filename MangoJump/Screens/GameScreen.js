@@ -1,5 +1,7 @@
 import React from 'react';
 import { TouchableOpacity,StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { MangoPlayer } from './MangoPlayer';
+import { Obstacle } from './Obstacle';
 
 export class GameScreen extends React.Component {
 
@@ -50,7 +52,7 @@ constructor(props) {
   render() {
     return (
       <View style={styles.container}>
-        <Mango mangoPosition={this.state.nextTargetY}></Mango>
+        <MangoPlayer mangoPosition={this.state.nextTargetY}></MangoPlayer>
         <View >
           <TouchableOpacity style={styles.obstacleWrapperStyle} onPressIn={this.onPressIn} onPressOut={this.onPressOut} 
           onPress={this.onMangoMove}>
@@ -60,31 +62,6 @@ constructor(props) {
       </View>
     );
   }
-}
-
-export class Mango extends React.Component {
-  render() {
-    console.log(this.props.mangoPosition)
-    return (
-      <View style={style={top:Dimensions.get("window").height - this.props.mangoPosition, alignItems: "flex-end"}}>
-        <Image
-          style={styles.playerMango} 
-          source={require('./Assets/MangoLogo.png')} 
-        />
-      </View>
-    );
-  }
-}
- 
-
-export class Obstacle extends React.Component {
-
-  render() {
-    return (
-      <View style={this.props.obstacleStyle ? this.props.obstacleStyle : styles.obstacleStyle}>
-      </View>
-    );
-  }  
 }
 
 
