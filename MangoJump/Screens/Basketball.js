@@ -5,6 +5,8 @@ import {
   StyleSheet,
   View,
   Dimensions,
+  ImageBackground,
+  Image
 } from 'react-native';
 
 import Ball from './components/Ball';
@@ -325,12 +327,17 @@ export class Basketball extends Component {
   }
 
   render() {
+    const resizeMode = 'scretch';
     return (
-      <View style={styles.container}>
-        <Score y={FLOOR_HEIGHT * 3} score={this.state.score} scored={this.state.scored} />
-        <Hoop y={HOOP_Y} />
+      <ImageBackground
+      source={require('./assets/cloudBackground.jpg')}
+      style={{width: '100%', height: '100%'}}
+      > 
+        <Score y={0}
+        score={this.state.score} 
+        scored={this.state.scored} />
+        
         {this.renderNet(this.state.lifecycle === LC_STARTING)}
-        {this.renderFloor(this.state.vy <= 0)}
         <Ball
           onStart={this.onStart.bind(this)}
           x={this.state.x}
@@ -340,9 +347,8 @@ export class Basketball extends Component {
           scale={this.state.scale}
         />
         {this.renderNet(this.state.lifecycle !== LC_STARTING)}
-        {this.renderFloor(this.state.vy > 0)}
         <Emoji y={NET_Y} scored={this.state.scored} />
-      </View>
+      </ImageBackground>
     );
   }
 }

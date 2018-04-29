@@ -16,6 +16,7 @@ class Score extends Component {
     return (
       <View style={[styles.scoreContainer, {
         bottom: this.props.y,
+        left: this.props.x,
         width: Dimensions.get('window').width,
       }]}
       >
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   scoreContainer: {
     position: 'absolute',
     justifyContent: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
 });
 

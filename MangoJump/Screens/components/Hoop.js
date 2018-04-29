@@ -26,7 +26,7 @@ class Hoop extends Component {
 const styles = StyleSheet.create({
   hoopContainer: {
     position: 'absolute',
-    left: (Dimensions.get('window').width / 2) - (179 / 2),
+    left: 0,
     width: 179,
     height: 112,
     alignItems: 'center',
