@@ -8,7 +8,7 @@ export class MangoPlayer extends React.Component {
         <View style={style={top:Dimensions.get("window").height - this.props.mangoPosition, alignItems: "flex-end"}}>
           <Image
             style={styles.playerMango} 
-            source={require('./Assets/MangoLogo.png')} 
+            source={require('./assets/MangoLogo.png')} 
           />
         </View>
       );
