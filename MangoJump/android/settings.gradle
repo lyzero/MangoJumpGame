@@ -1,0 +1,3 @@
+rootProject.name = 'MangoJump'
+
+include ':app'
