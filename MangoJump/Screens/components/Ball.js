@@ -62,7 +62,8 @@ class Ball extends Component {
       >
         <Image
           renderToHardwareTextureAndroid
-          source={{uri: 'https://raw.githubusercontent.com/FaridSafi/react-native-basketball/902dac849843d6beff3ee843ac527240d73da44f/assets/ball-384.png'}} style={[{
+          source={require('../assets/MangoLogo.png')} 
+          style={[{
             width: this.props.radius * 2,
             height: this.props.radius * 2,
             borderRadius: this.props.radius,
